@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">sapiAdsApp</string>
+    <string name="mail">Mail</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="marvellogo">marvelLogo</string>
 </resources>
