@@ -4,8 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //extend the RecyclerView.Adapter class
@@ -23,12 +27,31 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
         public final View myView;
 
         TextView textCharacter;
+        TextView textDescription;
+        LinearLayout linearLayout;
 
         CustomViewHolder(View itemView){
             super(itemView);
             myView = itemView;
 
             textCharacter = myView.findViewById(R.id.character);
+            textDescription = myView.findViewById(R.id.description);
+            linearLayout = myView.findViewById(R.id.linearLayout);
+            linearLayout.setVisibility(View.GONE);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    if (linearLayout.getVisibility() == View.VISIBLE) {
+                        linearLayout.setVisibility(View.GONE);
+                    } else {
+                        linearLayout.setVisibility(View.VISIBLE);
+                    }
+
+                    /*
+                    if(linearLayout.getVisibility() == )
+                    linearLayout.setVisibility(View.VISIBLE);*/
+                }
+            });
         }
     }
 
@@ -44,7 +67,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
     //set the data
 
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        holder.textCharacter.setText(dataList.get(position).getName());
+        //if(dataList.get(position).getDescription().isEmpty() == true){
+            //onBindViewHolder(holder,position+1);
+       // }else{
+            holder.textCharacter.setText(dataList.get(position).getName());
+            holder.textDescription.setText(dataList.get(position).getDescription());
+        //}
 
     }
 

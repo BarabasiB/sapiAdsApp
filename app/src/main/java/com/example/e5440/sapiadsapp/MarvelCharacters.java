@@ -6,8 +6,17 @@ class MarvelCharacters {
     @SerializedName("name")
     private String name;
 
-    public MarvelCharacters(String name) {
+    @SerializedName("description")
+    private String description;
+
+
+    /*public MarvelCharacters(String name) {
         this.name = name;
+    }*/
+
+    public MarvelCharacters(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
     public String getCharacter() {
@@ -16,5 +25,13 @@ class MarvelCharacters {
 
     public void setCharacter(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
