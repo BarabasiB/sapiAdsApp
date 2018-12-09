@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 }
 */
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -32,6 +34,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.bumptech.glide.RequestManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter myAdapter;
     private RecyclerView myRecyclerView;
 
+    private RequestManager glide;
+
     Date today = new java.util.Date();
     //    Long ts = today.getTime();
     int ts = 1;
@@ -61,8 +67,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.glide = glide;
 
+        /*SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.e5440.sapiadsapp", Context.MODE_PRIVATE);
 
+        ArrayList<String> test = new ArrayList<>();
+        test.add("1");
+        test.add("2");*/
 
 //Create a handler for the RetrofitInstance interface//
 
@@ -107,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 //Get a reference to the RecyclerView//
 
         myRecyclerView = findViewById(R.id.myRecyclerView);
-        myAdapter = new MyAdapter(usersList.getData().getResults());
+        myAdapter = new MyAdapter(usersList.getData().getResults(), glide);
 
 //Use a LinearLayoutManager with default vertical orientation//
 

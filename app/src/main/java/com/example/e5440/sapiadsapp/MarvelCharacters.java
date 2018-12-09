@@ -9,14 +9,19 @@ class MarvelCharacters {
     @SerializedName("description")
     private String description;
 
+    @SerializedName("thumbnail")
+    private String thumbnail;
+
+
 
     /*public MarvelCharacters(String name) {
         this.name = name;
     }*/
 
-    public MarvelCharacters(String name, String description) {
+    public MarvelCharacters(String name, String description, String thumbnail) {
         this.name = name;
         this.description = description;
+        this.thumbnail = thumbnail;
     }
 
     public String getCharacter() {
@@ -33,5 +38,13 @@ class MarvelCharacters {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }

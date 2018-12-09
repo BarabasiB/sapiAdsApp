@@ -5,9 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +21,11 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> {
 
     private List<MarvelResults> dataList;
+    private final RequestManager glide;
 
-    public MyAdapter(List<MarvelResults> dataList){
+    public MyAdapter(List<MarvelResults> dataList, RequestManager glide){
         this.dataList=dataList;
+        this.glide = glide;
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -28,6 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
 
         TextView textCharacter;
         TextView textDescription;
+        ImageView imageView;
         LinearLayout linearLayout;
 
         CustomViewHolder(View itemView){
@@ -36,7 +43,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
 
             textCharacter = myView.findViewById(R.id.character);
             textDescription = myView.findViewById(R.id.description);
-            linearLayout = myView.findViewById(R.id.linearLayout);
+            imageView = myView.findViewById(R.id.imageView);
+            /*linearLayout = myView.findViewById(R.id.linearLayout);
             linearLayout.setVisibility(View.GONE);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -50,8 +58,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
                     /*
                     if(linearLayout.getVisibility() == )
                     linearLayout.setVisibility(View.VISIBLE);*/
-                }
-            });
+             //   }
+           //});*/
         }
     }
 
@@ -72,6 +80,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
        // }else{
             holder.textCharacter.setText(dataList.get(position).getName());
             holder.textDescription.setText(dataList.get(position).getDescription());
+            glide.load(glide,"http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg",holder.imageView);
+        //Glide.load(dataList.get(position).getThumbnail()).into(holder.imageView);
         //}
 
     }
@@ -82,5 +92,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
     public int getItemCount() {
         return dataList.size();
     }
+
+    /*static loadImage(RequestManager glide, String url, ImageView view){
+        glide.load(url).into(view);
+    }*/
 
 }
