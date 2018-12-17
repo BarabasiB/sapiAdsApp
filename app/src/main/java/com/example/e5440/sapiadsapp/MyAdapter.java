@@ -80,7 +80,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
        // }else{
             holder.textCharacter.setText(dataList.get(position).getName());
             holder.textDescription.setText(dataList.get(position).getDescription());
-            glide.load(glide,"http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg",holder.imageView);
+            //glide.load(glide,"http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg",holder.imageView);
         //Glide.load(dataList.get(position).getThumbnail()).into(holder.imageView);
         //}
 

@@ -16,9 +16,9 @@ public class MarvelResults implements Serializable {
     @Expose
     private String description;
 
-    @SerializedName("thumbnail")
+    /*@SerializedName("thumbnail")
     @Expose
-    private String thumbnail;
+    private String thumbnail;*/
 
     /*
     private List<MarvelResults> results;
@@ -43,11 +43,11 @@ public class MarvelResults implements Serializable {
         this.description = description;
     }
 
-    public String getThumbnail() {
+    /*public String getThumbnail() {
         return thumbnail;
     }
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
-    }
+    }*/
 }
