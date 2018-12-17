@@ -32,6 +32,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.CustomViewHolder> 
         this.dataList=dataList;
     }
 
+    public void addNewList(ArrayList<MarvelResults> filteredResult) {
+        this.dataList.clear();
+        this.dataList.addAll(filteredResult);
+        notifyDataSetChanged();
+    }
 
 
     class CustomViewHolder extends RecyclerView.ViewHolder{

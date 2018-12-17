@@ -25,37 +25,36 @@ public class MainActivity extends AppCompatActivity {
 }
 */
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.bumptech.glide.RequestManager;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import java.security.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.searchBar)
+    SearchView searchBar;
     private MyAdapter myAdapter;
     private RecyclerView myRecyclerView;
 
     private RequestManager glide;
 
-    Date today = new java.util.Date();
+    Date today = new Date();
     //    Long ts = today.getTime();
     int ts = 1;
 
@@ -67,7 +66,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         this.glide = glide;
+        /*searchBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterByName();
+            }
+        });*/
 
         /*SharedPreferences sharedPreferences = this.getSharedPreferences("com.example.e5440.sapiadsapp", Context.MODE_PRIVATE);
 
@@ -148,6 +154,9 @@ public class MainActivity extends AppCompatActivity {
         myRecyclerView = findViewById(R.id.myRecyclerView);
         myAdapter = new MyAdapter(usersList.getData().getResults());
 
+        String name = "Iron Man";
+        filterByName(usersList.getData().getResults(), name);
+
 //Use a LinearLayoutManager with default vertical orientation//
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
@@ -158,6 +167,15 @@ public class MainActivity extends AppCompatActivity {
         myRecyclerView.setAdapter(myAdapter);
     }
 
+    private void filterByName(List<MarvelResults> results, String name) {
+        for (MarvelResults result : results) {
+            if (result.getName().equals(name)) {
+                ArrayList<MarvelResults> filteredResult = new ArrayList<>();
+                filteredResult.add(result);
+                myAdapter.addNewList(filteredResult);
+            }
+        }
+    }
 
 
 }
