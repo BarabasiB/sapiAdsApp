@@ -32,6 +32,6 @@ public class MarvelThumbnail implements Serializable {
     }
 
     public String getFullPath(){
-        return this.path+this.extension;
+        return this.path+"."+this.extension;
     }
 }

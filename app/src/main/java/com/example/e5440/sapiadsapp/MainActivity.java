@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 //        params.put("hash", HASH);
 
         Call<MarvelResponse> call = service.getAllCharacters(Long.valueOf(ts), API_KEY, HASH);
+        //Call<MarvelResponseTest> call = service.getCharacterByName("Iron%20Man",Long.valueOf(ts), API_KEY, HASH);
 
 //Execute the request asynchronously//
 
@@ -109,6 +110,33 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Unable to load users", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        //"SEARCH"
+
+        /*call.enqueue(new Callback<MarvelResponseTest>() {
+
+            @Override
+
+//Handle a successful response//
+
+            public void onResponse(Call<MarvelResponseTest> call, Response<MarvelResponseTest> response) {
+                loadSingleData(response.body());
+            }
+
+            @Override
+
+//Handle execution failures//
+
+            public void onFailure(Call<MarvelResponseTest> call, Throwable throwable) {
+
+//If the request fails, then display the following toast//
+
+                Toast.makeText(MainActivity.this, "Unable to load users" + call, Toast.LENGTH_SHORT).show();
+            }
+        });*/
+
+
     }
 
 //Display the retrieved data as a list//
@@ -118,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 //Get a reference to the RecyclerView//
 
         myRecyclerView = findViewById(R.id.myRecyclerView);
-        myAdapter = new MyAdapter(usersList.getData().getResults(), glide);
+        myAdapter = new MyAdapter(usersList.getData().getResults());
 
 //Use a LinearLayoutManager with default vertical orientation//
 
@@ -129,5 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
         myRecyclerView.setAdapter(myAdapter);
     }
+
+
 
 }

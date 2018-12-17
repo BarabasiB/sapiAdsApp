@@ -19,6 +19,15 @@ public interface GetData {
             @Query("hash") String hash
     );
 
+    @GET("v1/public/characters")
+
+    Call<MarvelResponseTest> getCharacterByName(
+            @Query("name") String name,
+            @Query("ts") Long ts,
+            @Query("apikey") String apikey,
+            @Query("hash") String hash
+    );
+
 
 
 }
