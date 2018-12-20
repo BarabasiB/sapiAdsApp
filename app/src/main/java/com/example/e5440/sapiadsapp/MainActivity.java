@@ -39,16 +39,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+//import butterknife.BindView;
+//import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.searchBar)
-    SearchView searchBar;
+    //@BindView(R.id.searchBar)
+    //SearchView searchBar;
     private MyAdapter myAdapter;
     private RecyclerView myRecyclerView;
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
         this.glide = glide;
         /*searchBar.setOnClickListener(new View.OnClickListener() {
             @Override
