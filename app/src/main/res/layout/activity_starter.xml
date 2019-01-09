@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context=".LoginRegisterActivity">
+    tools:context=".StarterActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/login_activity_toolbar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ffffff"></android.support.v7.widget.Toolbar>
 
@@ -28,7 +27,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/edit_text_style"
         android:ems="10"
-        android:hint="@string/mail"
+        android:hint="Enter mail "
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +42,7 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/edit_text_style"
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="Enter password "
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +56,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="92dp"
         android:background="@drawable/button_style"
+        android:onClick="login"
         android:text="@string/login"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,35 +76,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_activity_toolbar"
-        app:layout_constraintVertical_bias="0.639"
+        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/marvel_logo" />
 
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyle"
+    <TextView
+        android:id="@+id/changeLoginModeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_password"
-        app:layout_constraintVertical_bias="0.21" />
-
-    <Button
-        android:id="@+id/register_button"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_style"
-        android:text="@string/register"
-        android:textColor="#ffffff"
+        android:layout_marginBottom="60dp"
+        android:text="or, Register"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

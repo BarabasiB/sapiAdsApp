@@ -2,7 +2,8 @@ package com.example.e5440.sapiadsapp;
 
 import com.google.gson.annotations.SerializedName;
 
-class MarvelCharacters {
+public class MarvelCharacters {
+
     @SerializedName("name")
     private String name;
 
@@ -47,4 +48,6 @@ class MarvelCharacters {
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
+
 }
+

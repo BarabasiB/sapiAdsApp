@@ -3,7 +3,8 @@ package com.example.e5440.sapiadsapp;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MarvelClient {
+public class RetrofitClient {
+
     private static Retrofit retrofit;
 
     //base url
@@ -13,7 +14,7 @@ public class MarvelClient {
     //create a retrofit instance
     public static Retrofit getRetrofitInstance(){
         if(retrofit == null) {
-            retrofit = new retrofit2.Retrofit.Builder()
+            retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
 
                     //add the converter
@@ -26,6 +27,5 @@ public class MarvelClient {
         }
         return retrofit;
     }
-
 
 }
