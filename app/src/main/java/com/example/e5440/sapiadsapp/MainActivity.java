@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.bumptech.glide.RequestManager;
@@ -135,6 +137,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        SearchView searchView =(SearchView) findViewById(R.id.searchBar);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                myAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 
 //Display the retrieved data as a list//
@@ -157,4 +172,10 @@ public class MainActivity extends AppCompatActivity {
         myRecyclerView.setAdapter(myAdapter);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        return true;
+    }
 }
